@@ -1,17 +1,17 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.js";
-import App from "./App";
 import { BrowserRouter } from "react-router-dom";
+import ReactDOM from "react-dom";
+import { I18nextProvider } from "react-i18next";
+import "antd/dist/antd.css";
 
-const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
+import Router from "./router";
+import i18n from "./translation";
+
+const App = () => (
+  <BrowserRouter>
+    <I18nextProvider i18n={i18n}>
+      <Router />
+    </I18nextProvider>
+  </BrowserRouter>
 );
-root.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>
-);
+
+ReactDOM.render(<App />, document.getElementById("root"));
