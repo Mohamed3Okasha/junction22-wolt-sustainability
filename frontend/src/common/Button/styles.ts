@@ -11,6 +11,7 @@ export const StyledButton = styled("button")<any>`
   cursor: pointer;
   margin-top: 0.625rem;
   max-width: 180px;
+  justify-self: end;
   transition: all 0.3s ease-in-out;
   outline: 0;
   border-style:none;

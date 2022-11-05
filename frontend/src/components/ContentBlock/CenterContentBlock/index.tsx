@@ -83,13 +83,15 @@ const CenterContentBlock = ({
                     );
                   })}
                 </Row>
-                
+                {button && <Row justify={button[0].justify}>
+                <Col span="8">
                 <ButtonWrapper>
                 {typeof button === "object" &&
                   button.map((item: any, id: number) => {
                     return (
                       <Button
                         key={id}
+                        justify={item.justify}
                         color={item.color}
                         background={item.background}
                         fixedWidth={true}
@@ -99,7 +101,13 @@ const CenterContentBlock = ({
                       </Button>
                     );
                   })}
+                
               </ButtonWrapper>
+              </Col>
+                </Row>
+              }
+                
+              
             </ContentWrapper>
           </Col>
         </Row>

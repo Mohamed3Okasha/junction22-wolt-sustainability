@@ -52,12 +52,16 @@ const Home = () => {
             title={MenuContent.title}
             content={MenuContent.text}
             button={[{
+                color:"#ffffff",
+                justify: "center",
                 title: "See menu",
                 action: ()=> history.push("/menu")
             }]}
             icon="product-launch.svg"
             id="menu"
-          /> 
+          />
+            
+
         </Col>
         <Col span="12">
           <Carousel activeIndex={index} onSelect={handleSelect}  variant="dark">
@@ -67,8 +71,14 @@ const Home = () => {
           </Carousel.Caption>
             </Carousel.Item>
           
+           
+            <Carousel.Item>
+              <img  className="d-block w-100" src="/img/stocks/Rectangle12.png" alt="Second slide" style={{ width:"auto", height:"auto"}}></img>
+              <Carousel.Caption>
+          </Carousel.Caption>
+            </Carousel.Item>
           <Carousel.Item>
-              <img  className="d-block w-100" src="/img/stocks/Rectangle13.png" alt="Third slide" max-height="300px"style={{ width:"auto", height:"auto"}}></img>
+              <img  className="d-block w-100" src="/img/stocks/Rectangle13.png" alt="Third slide" style={{ width:"auto", height:"auto"}}></img>
               <Carousel.Caption>
           </Carousel.Caption>
             </Carousel.Item>
@@ -80,7 +90,7 @@ const Home = () => {
             </Carousel.Item>
             
             <Carousel.Item>
-              <img   className=" d-block w-100" src="/img/stocks/Rectangle15.png" alt="Fifth slide" max-height="300px"></img>
+              <img   className=" d-block w-100" src="/img/stocks/Rectangle15.png" alt="Fifth slide" ></img>
               <Carousel.Caption>
           </Carousel.Caption>
             </Carousel.Item>

@@ -5,10 +5,11 @@ export const Button = ({
   color,
   fixedWidth,
   background,
+  justify,
   children,
   onClick,
 }: ButtonProps) => (
-  <StyledButton background={background} color={color} fixedWidth={fixedWidth} onClick={onClick}>
+  <StyledButton justifySelf = "center" background={background} color={color} fixedWidth={fixedWidth} onClick={onClick}>
     {children}
   </StyledButton>
 );
