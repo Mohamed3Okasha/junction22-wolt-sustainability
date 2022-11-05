@@ -15,6 +15,7 @@ const ScrollToTop = lazy(() => import("../../../src/common/ScrollToTop"));
 const ContentBlock = lazy(() => import("../../../src/components/ContentBlock"));
 const WoltApproxDeliveryTime = lazy(() => import("../../../src/components/WoltApproxDeliveryTime"));
 const PricingBlock = lazy(() => import("../../../src/components/Pricing"));
+const FAQ = lazy(() => import("../../components/FAQ"));
 
 const Home = () => {
   const history = useHistory()
@@ -33,8 +34,8 @@ const Home = () => {
       {/*/>*/}
       <ScrollToTop />
       <Card  id="hero" bordered={false}  style={{borderRadius:"20px", backgroundImage: "URL(/img/stocks/hi.png)", minHeight: "100%", backgroundSize: "cover"}}>
-      <p style={{width:"50%", fontSize:"25px", color:"#ffffff"}}>You don’t need to think about food anymore</p>
-      <p style={{width:"50%", fontSize:"18px", color:"#ffffff"}}>We will provide you with afordable, healthy and tasty food! So, you don’t have to get your hands dirty!</p>
+      <p style={{width:"50%", fontSize:"25px", color:"#ffffff"}}>You don't have to cook anymore</p>
+      <p style={{width:"50%", fontSize:"18px", color:"#ffffff"}}>We provide affordable, healthy and tasty food, so you don't have to cook ever again!</p>
         <Button onClick={()=>alert("start")} color={"#ffffff" }>Pick a meal</Button>
       </Card>
 
@@ -100,6 +101,8 @@ const Home = () => {
       </Row>
 
       <PricingBlock id="pricing"/>
+
+      <FAQ/>
 
       <Contact
         title={ContactContent.title}

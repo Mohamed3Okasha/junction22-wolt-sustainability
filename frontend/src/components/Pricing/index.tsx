@@ -75,7 +75,7 @@ const Pricing = ({id}) => {
             }
             </Col>
 
-            <Row justify="center" style={{ marginTop: 16 }}>
+            <Row justify="center" style={{ marginTop: 16, marginBottom: 64 }}>
                 <p>All plans include delivery</p>
             </Row>
         </>
