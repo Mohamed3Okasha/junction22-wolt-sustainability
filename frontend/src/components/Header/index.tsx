@@ -4,6 +4,8 @@ import { withTranslation } from "react-i18next";
 import Container from "../../common/Container";
 import { SvgIcon } from "../../common/SvgIcon";
 import { Button } from "../../common/Button";
+import { useHistory } from 'react-router-dom';
+
 import {
   HeaderSection,
   LogoContainer,
@@ -14,8 +16,9 @@ import {
   Label,
   Outline,
   Span,
+  NavLink,
 } from "./styles";
-
+import { useGlobalState } from "../../state/GlobalStateProvider";
 const Header = ({ t }: any) => {
   const [visible, setVisibility] = useState(false);
 
@@ -27,6 +30,10 @@ const Header = ({ t }: any) => {
     setVisibility(!visible);
   };
 
+  const [state, dispatch] = useGlobalState();
+  
+  const history = useHistory();
+
   const MenuItem = () => {
     const scrollTo = (id: string) => {
       const element = document.getElementById(id) as HTMLDivElement;
@@ -35,7 +42,7 @@ const Header = ({ t }: any) => {
       });
       setVisibility(false);
     };
-    return (
+    return  (
       <>
         <CustomNavLinkSmall onClick={() => scrollTo("about")}>
           <Span>{t("About")}</Span>
@@ -43,9 +50,37 @@ const Header = ({ t }: any) => {
         <CustomNavLinkSmall onClick={() => scrollTo("mission")}>
           <Span>{t("Mission")}</Span>
         </CustomNavLinkSmall>
-        <CustomNavLinkSmall onClick={() => scrollTo("product")}>
+        <CustomNavLinkSmall  onClick={() => scrollTo("product")}>
           <Span>{t("Product")}</Span>
         </CustomNavLinkSmall>
+        {!state.auth &&
+          <CustomNavLinkSmall onClick={() => {
+            dispatch({ auth: true })
+            history.push("/auth")}            
+          }>
+          <Span>{t("Log in")}</Span>
+          </CustomNavLinkSmall>
+        }
+        {(state.auth)&& 
+            <CustomNavLinkSmall onClick={() => {
+              dispatch({ auth: false })
+              history.push("/")
+            }
+            }>
+            <Span>{t("Log out")}</Span>
+          </CustomNavLinkSmall>
+        }
+
+        {(state.auth )&& 
+            <CustomNavLinkSmall onClick={() => {
+              dispatch({ auth: false })
+              history.push("/auth/orders")
+            }
+            }>
+            <Span>{t("My orders")}</Span>
+          </CustomNavLinkSmall>
+        }
+      
         <CustomNavLinkSmall
           style={{ width: "180px" }}
           onClick={() => scrollTo("contact")}
