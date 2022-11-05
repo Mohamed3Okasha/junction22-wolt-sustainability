@@ -25,7 +25,7 @@ const FAQ = () => {
                     </p>
                     <p>
                         <b>A:</b> Food delivery is expensive. A half-decent meal will cost you 12 euros at the very minimum.
-                        In addition, restaurant food has to be tasty, but not necessary healthy.
+                        In addition, restaurant food is meant to be tasty, but not necessary healthy.
                     </p>
                 </Col>
             </Row>

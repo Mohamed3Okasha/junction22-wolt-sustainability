@@ -1,5 +1,4 @@
-import { lazy } from "react";
-import React, { useState } from "react";
+import React, { lazy, useEffect, useState } from "react";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Table from 'react-bootstrap/Table';
@@ -12,17 +11,26 @@ import Accordion from "react-bootstrap/Accordion"
 import ButtonGroup from "react-bootstrap/ButtonGroup"
 import DateTimePicker from 'react-datetime-picker'
 import ToggleButton from "react-bootstrap/ToggleButton"
-import Form from 'react-bootstrap/Form';
+import { getApproxDeliveryTime, requestDelivery } from "../../wolt-api/utisl";
+import WoltApproxDeliveryTime from "../../components/WoltApproxDeliveryTime";
+
 const Container = lazy(() => import("../../common/Container"));
 
 const Orders = () => {
     const [state, dispatch] = useAccountDeliveryData();
 
-    const doSomething = () => {
-        throw new Error("Function not implemented.");
+    const doSomething = async () => {
+        if (radioValue == DeliveryMethod.QUICK_COURIER) {
+            setTrackingURL(await requestDelivery("Otakaari 24, 02150 Espoo", "Arkadiankatu 3-6", null))
+        }
+        if (radioValue == DeliveryMethod.SCHEDUELED) {
+            setTrackingURL(await requestDelivery("Otakaari 24, 02150 Espoo", "Arkadiankatu 3-6", value.toISOString()))
+        }
     }
     const [value, onChange] = useState(new Date());
     const [radioValue, setRadioValue] = useState(DeliveryMethod.UNKNOWN)
+    const [approxDeliveryTime, setApproxDeliveryTime] = useState()
+    const [trackingURL, setTrackingURL] = useState()
     const getWeekday = (date: Date) => {
         const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
@@ -34,11 +42,10 @@ const Orders = () => {
             case DeliveryMethod.FIXED:
                 return <p>Deliveries occur on Monday, Wednesday and Friday between 10.00 and 12.00</p>;
             case DeliveryMethod.QUICK_COURIER:
-                return <p>Deliveries occur on Monday, Wednesday and Friday between 10.00 and 12.00</p>;
-
+                return <WoltApproxDeliveryTime from_location="Otakaari 24, 02150 Espoo" to_location="Arkadiankatu 3-6"/>
             case DeliveryMethod.SCHEDUELED:
                 return (
-                    <><p>Pick the date</p>     <DateTimePicker onChange={onChange} value={value} /></>
+                    <><p>Pick the date</p>     <DateTimePicker onChange={onChange} value={value}/></>
                 )
 
             case DeliveryMethod.SELF_PICKUP:
@@ -100,6 +107,7 @@ const Orders = () => {
                                             </Row>
                                             {renderSwitch(radioValue)}
                                             <Button onClick={() => doSomething()}>Confirm</Button>
+                                            {trackingURL && <a href={trackingURL}>Tracking URL</a>}
                                         </Accordion.Body>
                                     </Accordion.Item>
                                     : <></>

@@ -40,7 +40,8 @@ const Home = () => {
         style={{
           borderRadius: "20px",
           backgroundImage: "URL(/img/stocks/hi.png)",
-          minHeight: "100%",
+          height: 300,
+          // minHeight: "100%",
           backgroundSize: "cover",
         }}
       >
