@@ -11,10 +11,15 @@ const MiddleBlock = lazy(() => import("../../components/MiddleBlock"));
 const Container = lazy(() => import("../../common/Container"));
 const ScrollToTop = lazy(() => import("../../common/ScrollToTop"));
 const ContentBlock = lazy(() => import("../../components/ContentBlock"));
+const WoltApproxDeliveryTime = lazy(() => import("../../components/WoltApproxDeliveryTime"));
 
 const Home = () => {
   return (
     <Container>
+      {/*<WoltApproxDeliveryTime*/}
+      {/*    from_location="Otakaari 24, 02150 Espoo"*/}
+      {/*    to_location="Arkadiankatu 3-6"*/}
+      {/*/>*/}
       <ScrollToTop />
       <ContentBlock
         type="right"
