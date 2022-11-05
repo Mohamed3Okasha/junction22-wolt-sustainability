@@ -20,6 +20,7 @@ const RightBlock = ({
   id,
 }: ContentBlockProps) => {
   const scrollTo = (id: string) => {
+    console.log(id)
     const element = document.getElementById(id) as HTMLDivElement;
     element.scrollIntoView({
       behavior: "smooth",

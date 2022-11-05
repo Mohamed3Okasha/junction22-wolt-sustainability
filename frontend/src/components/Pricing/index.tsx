@@ -3,12 +3,12 @@ import { Row, Col } from "antd";
 import BootstrapSwitchButton from 'bootstrap-switch-button-react'
 
 
-const Pricing = () => {
+const Pricing = ({id}) => {
     const [isTwoMeals, setTwoMeals] = useState(true);
 
     return (
         <>
-            <Col>
+            <Col id={id}>
                 <Row justify="center">
                     <h1>Pricing</h1>
                 </Row>
