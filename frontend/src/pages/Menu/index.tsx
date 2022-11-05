@@ -8,7 +8,8 @@ const Container = lazy(() => import("../../common/Container"));
 const Menu = () => {
   return (
     <Container>
-        Not implemented yet.
+       <Table>
+        </Table>
     </Container>    
     )};
 

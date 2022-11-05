@@ -79,7 +79,6 @@ const Header = ({ t }: any) => {
 
         {(state.auth )&& 
             <CustomNavLinkSmall onClick={() => {
-              dispatch({ auth: false })
               history.push("/auth/orders")
             }
             }>
