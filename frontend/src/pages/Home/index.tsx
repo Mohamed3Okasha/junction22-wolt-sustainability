@@ -13,11 +13,16 @@ const MiddleBlock = lazy(() => import("../../components/MiddleBlock"));
 const Container = lazy(() => import("../../common/Container"));
 const ScrollToTop = lazy(() => import("../../common/ScrollToTop"));
 const ContentBlock = lazy(() => import("../../components/ContentBlock"));
+const WoltApproxDeliveryTime = lazy(() => import("../../components/WoltApproxDeliveryTime"));
 
 const Home = () => {
   const history = useHistory()
   return (
     <Container>
+      {/*<WoltApproxDeliveryTime*/}
+      {/*    from_location="Otakaari 24, 02150 Espoo"*/}
+      {/*    to_location="Arkadiankatu 3-6"*/}
+      {/*/>*/}
       <ScrollToTop />
       <Card  bordered={false}  style={{borderRadius:"20px", backgroundImage: "URL(/img/stocks/hi_1.png) noRepeat: 95%50%", minHeight: "100%", backgroundSize: "cover"}}>
       <p style={{width:"50%", fontSize:"25px", color:"#ffffff"}}>You don’t need to think about food anymore</p>
