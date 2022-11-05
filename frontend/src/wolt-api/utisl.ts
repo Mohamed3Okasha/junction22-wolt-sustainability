@@ -27,5 +27,5 @@ export const getApproxDeliveryTime = async (from: string, to: string) => {
 
     const result = await response.json();
 
-    return result.time_estimate_minutes + Math.floor(Math.random() * 10);
+    return result.time_estimate_minutes + Math.floor(Math.random() * 30);
 };
