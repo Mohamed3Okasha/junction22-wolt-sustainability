@@ -17,7 +17,6 @@ import {useHistory} from "react-router-dom";
 
 
 const CenterContentBlock = ({
-  icon,
   title,
   button,
   content,
@@ -34,7 +33,12 @@ const CenterContentBlock = ({
           <Col lg={24} md={24} sm={24} xs={24}>
             <ContentWrapper>
               <h6 style={{textAlign: "center"}}>{t(title)}</h6>
-              <Content>{t(content)}</Content>
+              {content.map((item: any) => {
+                      return (
+                        <Content style={{textAlign:"center"}}>{t(item)}</Content>
+                        );
+                      }
+                    )}
                 <Row justify="space-evenly" align="middle">
                   {typeof section === "object" &&
                     section.map((item: any, id: number) => {
@@ -52,6 +56,7 @@ const CenterContentBlock = ({
                       );
                     })}
                 </Row>
+                
                 <ButtonWrapper>
                 {typeof button === "object" &&
                   button.map((item: any, id: number) => {

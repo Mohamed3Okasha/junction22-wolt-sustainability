@@ -1,6 +1,6 @@
 {
   "title": "Pricing",
-  "text": "This template is ready to use, so you don't need to change anything at a component level, unless you want to customize the default styling.",
+  "text": ["This template is ready to use, so you don't need to change anything at a component level, unless you want to customize the default styling."],
   "section": [
     {
       "title": "Why Antd?",
