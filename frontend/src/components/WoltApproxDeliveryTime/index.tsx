@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-import {getApproxDeliveryTime} from '../../wolt-api/utisl'
+import { getApproxDeliveryTime, requestDelivery } from '../../wolt-api/utisl'
 
 interface WoltApproxDeliveryPros {
   from_location: string,
