@@ -46,18 +46,17 @@ const Header = ({ t }: any) => {
         <Col>
           <Row align="middle">
             <LogoContainer to="/" aria-label="homepage">
-              <SvgIcon src="logo.svg" width="101px" height="64px" />
+              <SvgIcon src="logo_img.svg" width="101px" height="64px" />
             </LogoContainer>
+            <CustomNavLinkSmall onClick={() => scrollTo("howItWorks")}>
+              <Span>{t("How it Works")}</Span>
+            </CustomNavLinkSmall>
             <CustomNavLinkSmall onClick={() => scrollTo("menu")}>
               <Span>{t("Our Menu")}</Span>
             </CustomNavLinkSmall>
             <CustomNavLinkSmall onClick={() => scrollTo("pricing")}>
-              <Span>{t("Pricing")}</Span>
+              <Span>{t("Pricing Plan")}</Span>
             </CustomNavLinkSmall>
-            <CustomNavLinkSmall onClick={() => scrollTo("contact")}>
-              <Span>{t("How it Works")}</Span>
-            </CustomNavLinkSmall>
-
             {!state.auth && (
               <CustomNavLinkSmall
                 onClick={() => {
