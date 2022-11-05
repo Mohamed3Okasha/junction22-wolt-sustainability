@@ -2,6 +2,8 @@ import { Row, Col } from "antd";
 import { withTranslation } from "react-i18next";
 import { SvgIcon } from "../../common/SvgIcon";
 import Container from "../../common/Container";
+import { Button } from "../../common/Button";
+import { StyledInput } from "../../common/Input/styles";
 
 import i18n from "i18next";
 import {
@@ -50,78 +52,37 @@ const Footer = ({ t }: any) => {
       <FooterSection>
         <Container>
           <Row justify="space-between">
-            <Col lg={10} md={10} sm={12} xs={12}>
-              <Language>{t("Contact")}</Language>
-              <Large to="/">{t("Tell us everything")}</Large>
-              <Para>
-                {t(`Do you have any question? Feel free to reach out.`)}
-              </Para>
-              <a href="mailto:l.qqbadze@gmail.com">
-                <Chat>{t(`Let's Chat`)}</Chat>
-              </a>
-            </Col>
-            <Col lg={8} md={8} sm={12} xs={12}>
-              <Title>{t("Policy")}</Title>
-              <Large to="/" left="true">
-                {t("Application Security")}
-              </Large>
+            <Col lg={4} md={8} sm={12} xs={12}>
+              <Title>{t("Quick Links")}</Title>
               <Large left="true" to="/">
-                {t("Software Principles")}
-              </Large>
-            </Col>
-            <Col lg={6} md={6} sm={12} xs={12}>
-              <Empty />
-              <Large left="true" to="/">
-                {t("Support Center")}
-              </Large>
-              <Large left="true" to="/">
-                {t("Customer Support")}
-              </Large>
-            </Col>
-          </Row>
-          <Row justify="space-between">
-            <Col lg={10} md={10} sm={12} xs={12}>
-              <Empty />
-              <Language>{t("Address")}</Language>
-              <Para>Rancho Santa Margarita</Para>
-              <Para>2131 Elk Street</Para>
-              <Para>California</Para>
-            </Col>
-            <Col lg={8} md={8} sm={12} xs={12}>
-              <Title>{t("Company")}</Title>
-              <Large left="true" to="/">
-                {t("About")}
+                {t("FAQ")}
               </Large>
               <Large left="true" to="/">
                 {t("Blog")}
               </Large>
               <Large left="true" to="/">
-                {t("Press")}
-              </Large>
-              <Large left="true" to="/">
-                {t("Careers & Culture")}
+                {t("Contact Us")}
               </Large>
             </Col>
-            <Col lg={6} md={6} sm={12} xs={12}>
-              <Label htmlFor="select-lang">{t("Language")}</Label>
-              <LanguageSwitchContainer>
-                <LanguageSwitch onClick={() => handleChange("en")}>
-                  <SvgIcon
-                    src="united-states.svg"
-                    aria-label="homepage"
-                    width="30px"
-                    height="30px"
-                  />
-                </LanguageSwitch>
-                <LanguageSwitch onClick={() => handleChange("es")}>
-                  <SvgIcon
-                    src="spain.svg"
-                    aria-label="homepage"
-                    width="30px"
-                    height="30px"
-                  />
-                </LanguageSwitch>
-              </LanguageSwitchContainer>
+            <Col lg={8} md={10} sm={12} xs={12}>
+              <Title>{t("About Us")}</Title>
+              <Large left="true" to="/">
+                {t("Cooky is a service that provides affordable and healthy meals. " +
+                    "We cook and deliver meals straight to your home door so can forget about the hassle of cooking")}
+              </Large>
+            </Col>
+            <Col lg={8} md={10} sm={12} xs={12}>
+              <Title>{t("Newslatter")}</Title>
+              <Col>
+                <StyledInput
+                    style={{backgroundColor: "#ffffff"}}
+                    type="text"
+                    name="email"
+                    placeholder="Your Email"
+                    onChange={() => {}}
+                />
+                <Button color="#ffffff" name="submit">{t("Submit")}</Button>
+              </Col>
             </Col>
           </Row>
         </Container>
@@ -145,27 +106,17 @@ const Footer = ({ t }: any) => {
             </NavLink>
             <FooterContainer>
               <SocialLink
-                href="https://github.com/Adrinlol/create-react-app-adrinlol"
-                src="github.svg"
-              />
-              <SocialLink
-                href="https://twitter.com/Adrinlolx"
-                src="twitter.svg"
-              />
-              <SocialLink
                 href="https://www.linkedin.com/in/lasha-kakabadze/"
-                src="linkedin.svg"
+                src="instagram.svg"
               />
               <SocialLink
-                href="https://medium.com/@lashakakabadze/"
-                src="medium.svg"
+                  href="https://www.linkedin.com/in/lasha-kakabadze/"
+                  src="facebook.svg"
               />
-              <a href="https://www.buymeacoffee.com/adrinlol">
-                <img
-                  src="https://img.buymeacoffee.com/button-api/?text=Buy me a pizza&emoji=🍕&slug=adrinlol&button_colour=FF5F5F&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00"
-                  alt="Buy me a pizza"
-                />
-              </a>
+              <SocialLink
+                  href="https://twitter.com/Adrinlolx"
+                  src="twitter.svg"
+              />
             </FooterContainer>
           </Row>
         </Container>
