@@ -1,0 +1,22 @@
+{
+    "title": "How does it work?",
+    "text": "You buy a subscription, you choose meal and a delivery option.\n\nWe will get the food ready at your comfort.",
+    "section": [
+      {
+        "title": "Buy a subscription",
+        "content": "",
+        "icon":"cart-outline.svg"
+      },
+      {
+        "title": "Choose your meals & delivery method",
+        "content": "",
+        "icon": "checkmark-circle-outline.svg"
+      },
+      {
+        "title": "Enjoy",
+        "content": "",
+        "icon": "restaurant-outline.svg"
+      }
+    ],
+    "button": "Get started"
+  }

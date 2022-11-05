@@ -7,7 +7,8 @@ import { MiddleBlockSection, Content, ContentWrapper } from "./styles";
 interface MiddleBlockProps {
   title: string;
   content: string;
-  button: string;
+  button?: string;
+  section: string;
   t: any;
 }
 

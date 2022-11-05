@@ -11,6 +11,7 @@ export const HeaderSection = styled("header")`
   }
 `;
 
+
 export const LogoContainer = styled(Link)`
   display: flex;
 `;
@@ -41,6 +42,7 @@ export const ContactWrapper = styled("div")<any>`
   border-radius: 1.25rem;
   display: inline-block;
 `;
+
 
 export const Burger = styled("div")`
   @media only screen and (max-width: 890px) {

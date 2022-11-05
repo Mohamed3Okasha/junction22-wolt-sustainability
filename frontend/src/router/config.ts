@@ -2,17 +2,22 @@ const routes = [
   {
     path: ["/", "/home"],
     exact: true,
-    component: "Guest",
+    component: "Home",
   },
   {
     path: ["/auth/", "/auth/home"],
     exact: true,
-    component: "Authenticated",
+    component: "Home",
   },
   {
-    path: ["/auth/meals", "/auth/meals"],
+    path: ["/auth/orders", "/auth/orders"],
     exact: true,
-    component: "Meals",
+    component: "Orders",
+  },
+  {
+    path: ["/menu", "/menu"],
+    exact: true,
+    component: "Menu",
   },
 ];
 

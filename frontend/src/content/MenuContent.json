@@ -1,0 +1,22 @@
+{
+  "title": "Menus",
+  "text": "This template is ready to use, so you don't need to change anything at a component level, unless you want to customize the default styling.",
+  "section": [
+    {
+      "title": "Customisability",
+      "content": "You can choose between vegan and meat-based diets.",
+      "image":"vegan_meal.jpg"
+    },
+    {
+      "title": "Variety",
+      "content": "The menus change regularly so that you will have always something to discover ",
+      "image": "pad_thai.jpg"
+    },
+    {
+      "title": "Sustainability",
+      "content": "By having preordered meals we can keep food waste at minimal",
+      "image": "some_salad.jpg"
+    }
+  ],
+  "button":"Take a look at our menu"
+}
