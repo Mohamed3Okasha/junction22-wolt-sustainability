@@ -1,21 +1,21 @@
 {
-    "title": "How does it work?",
-    "text": "You buy a subscription, you choose meal and a delivery option.\n\nWe will get the food ready at your comfort.",
+    "title": "",
+    "text": "",
     "section": [
       {
-        "title": "Buy a subscription",
-        "content": "",
-        "icon":"cart-outline.svg"
+        "title": "Decide",
+        "content": "Choose your plan and number of meals ",
+        "icon":"fluent-emoji-flat_man-cook.svg"
       },
       {
-        "title": "Choose your meals & delivery method",
-        "content": "",
+        "title": "Buy",
+        "content": "Select what meals and on which day you want to have",
         "icon": "checkmark-circle-outline.svg"
       },
       {
-        "title": "Enjoy",
-        "content": "",
-        "icon": "restaurant-outline.svg"
+        "title": "Get",
+        "content": "Once in 2 days we cook and deliver the meals ",
+        "icon": "emojione_fork-and-knife-with-plate.svg"
       }
     ],
     "button": "Get started"

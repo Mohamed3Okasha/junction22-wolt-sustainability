@@ -33,7 +33,7 @@ const CenterContentBlock = ({
         <Row justify="space-between" align="middle" id={id}>
           <Col lg={24} md={24} sm={24} xs={24}>
             <ContentWrapper>
-              <h6>{t(title)}</h6>
+              <h6 style={{textAlign: "center"}}>{t(title)}</h6>
               <Content>{t(content)}</Content>
                 <Row justify="space-evenly" align="middle">
                   {typeof section === "object" &&
@@ -41,10 +41,10 @@ const CenterContentBlock = ({
                       return (
                         <Col key={id} span={8} >
                           {item.image &&
-                            <Img src={`/img/stocks/${item.image}`} width="200" height="200" />
+                            <Img src={`/img/stocks/${item.image}`} width="100" height="100" />
                           }
                           {item.icon && 
-                            <SvgIcon src={t(item.icon)}  width="200" height="200" />
+                            <SvgIcon src={t(item.icon)}  width="100" height="100" />
                           }
                           <MinTitle>{t(item.title)}</MinTitle>
                           <MinPara>{t(item.content)}</MinPara>

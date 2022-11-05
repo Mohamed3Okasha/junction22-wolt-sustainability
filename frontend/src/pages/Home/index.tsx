@@ -19,22 +19,11 @@ const Home = () => {
   return (
     <Container>
       <ScrollToTop />
-      <Card  bordered={false}  style={{borderRadius:"20px", backgroundImage: "URL(/img/stocks/hi_1.png) no-repeat: 95%50%", minHeight: "100%", backgroundSize: "cover"}}>
+      <Card  bordered={false}  style={{borderRadius:"20px", backgroundImage: "URL(/img/stocks/hi_1.png) noRepeat: 95%50%", minHeight: "100%", backgroundSize: "cover"}}>
       <p style={{width:"50%", fontSize:"25px", color:"#ffffff"}}>You don’t need to think about food anymore</p>
       <p style={{width:"50%", fontSize:"18px", color:"#ffffff"}}>We will provide you with afordable, healthy and tasty food! So, you don’t have to get your hands dirty!</p>
         <Button onClick={()=>alert("start")} color={"#ffffff" }>Pick a meal</Button>
       </Card>
-      <ContentBlock
-        type="right"
-        title={IntroContent.title}
-        content={IntroContent.text}
-        icon="developer.svg"
-        button={[{
-            title:"Pick a meal",
-            action: ()=> console.log("hello")
-        }]}
-        id="intro"
-      />
 
       <ContentBlock
         type="center"
