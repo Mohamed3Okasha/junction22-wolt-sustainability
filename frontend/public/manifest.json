@@ -1,20 +1,20 @@
 {
-  "short_name": "Landy",
-  "name": "Landy - React Template",
+  "short_name": "Cooky",
+  "name": "Cooking as a Service",
   "icons": [
     {
-      "src": "img/icons/logo192.png",
+      "src": "img/icons/logo.svg",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "img/icons/logo192.png",
-      "type": "image/png",
+      "src": "img/icons/logo.svg",
+      "type": "image/svg",
       "sizes": "192x192"
     },
     {
-      "src": "img/icons/logo512.png",
-      "type": "image/png",
+      "src": "img/icons/logo.svg",
+      "type": "image/svg",
       "sizes": "512x512"
     }
   ],
