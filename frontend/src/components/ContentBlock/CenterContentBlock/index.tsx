@@ -40,17 +40,44 @@ const CenterContentBlock = ({
                     section.map((item: any, id: number) => {
                       return (
                         <Col key={id} span={8} >
-                          {item.image &&
-                            <Img src={`/img/stocks/${item.image}`} width="100" height="100" />
-                          }
                           {item.icon && 
                             <SvgIcon src={t(item.icon)}  width="100" height="100" />
                           }
-                          <MinTitle>{t(item.title)}</MinTitle>
-                          <MinPara>{t(item.content)}</MinPara>
                         </Col>
                       );
                     })}
+                </Row>
+                <Row justify="space-evenly" align="middle">
+                  {typeof section === "object" &&
+                  section.map((item: any, id: number) => {
+                    return (
+                        <Col key={id} span={8} >
+                          {item.image &&
+                          <Img src={`/img/stocks/${item.image}`} width="100" height="100" />
+                          }
+                        </Col>
+                    );
+                  })}
+                </Row>
+                <Row justify="space-evenly" align="middle">
+                  {typeof section === "object" &&
+                  section.map((item: any, id: number) => {
+                    return (
+                        <Col key={id} span={8} >
+                          <MinTitle>{t(item.title)}</MinTitle>
+                        </Col>
+                    );
+                  })}
+                </Row>
+                <Row justify="space-evenly" align="middle">
+                  {typeof section === "object" &&
+                  section.map((item: any, id: number) => {
+                    return (
+                        <Col key={id} span={8} >
+                          <MinPara>{t(item.content)}</MinPara>
+                        </Col>
+                    );
+                  })}
                 </Row>
                 <ButtonWrapper>
                 {typeof button === "object" &&
