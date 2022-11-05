@@ -14,6 +14,7 @@ const Container = lazy(() => import("../../../src/common/Container"));
 const ScrollToTop = lazy(() => import("../../../src/common/ScrollToTop"));
 const ContentBlock = lazy(() => import("../../../src/components/ContentBlock"));
 const WoltApproxDeliveryTime = lazy(() => import("../../../src/components/WoltApproxDeliveryTime"));
+const PricingBlock = lazy(() => import("../../../src/components/Pricing"));
 
 const Home = () => {
   const history = useHistory()
@@ -95,18 +96,10 @@ const Home = () => {
           </Carousel.Caption>
             </Carousel.Item>
           </Carousel>   
-          </Col>
-        </Row>
-    
+        </Col>
+      </Row>
 
-    <ContentBlock
-        type="center"
-        title={PricingContent.title}
-        content={PricingContent.text}
-        section={PricingContent.section}
-        icon="graphs.svg"
-        id="about"
-      />
+      <PricingBlock/>
 
       <Contact
         title={ContactContent.title}
