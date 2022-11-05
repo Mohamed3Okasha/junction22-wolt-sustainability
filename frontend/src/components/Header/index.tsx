@@ -77,7 +77,7 @@ const Header = ({ t }: any) => {
                 <Span>{t("Log out")}</Span>
               </CustomNavLinkSmall>
             )}
-
+        
         {(state.auth )&& 
             <CustomNavLinkSmall onClick={() => {
               history.push("/auth/orders")
@@ -95,6 +95,8 @@ const Header = ({ t }: any) => {
             <Button background="#D9D9D9" color="#000000" >{t("Get Started")}</Button>
           </Span>
         </CustomNavLinkSmall>
+        </Row>
+
         </Col>
       </>
     );

@@ -1,5 +1,5 @@
 import { lazy } from "react";
-import React,{useState} from "react";
+import React, { useState } from "react";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Table from 'react-bootstrap/Table';
@@ -10,6 +10,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Accordion from "react-bootstrap/Accordion"
 import ButtonGroup from "react-bootstrap/ButtonGroup"
+import DateTimePicker from 'react-datetime-picker'
 import ToggleButton from "react-bootstrap/ToggleButton"
 import Form from 'react-bootstrap/Form';
 const Container = lazy(() => import("../../common/Container"));
@@ -17,7 +18,10 @@ const Container = lazy(() => import("../../common/Container"));
 const Orders = () => {
     const [state, dispatch] = useAccountDeliveryData();
 
-    const [selected, setSelected] = useState(undefined)
+    const doSomething = () => {
+        throw new Error("Function not implemented.");
+    }
+    const [value, onChange] = useState(new Date());
     const [radioValue, setRadioValue] = useState(DeliveryMethod.UNKNOWN)
     const getWeekday = (date: Date) => {
         const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -25,30 +29,37 @@ const Orders = () => {
         return weekday[date.getDay()];
     }
 
-    const renderSwitch = (param) =>{
-        switch(param) {
+    const renderSwitch = (param) => {
+        switch (param) {
             case DeliveryMethod.FIXED:
-              return <p> </p>;
+                return <p>Deliveries occur on Monday, Wednesday and Friday between 10.00 and 12.00</p>;
             case DeliveryMethod.QUICK_COURIER:
-              return 'foo';
+                return <p>Deliveries occur on Monday, Wednesday and Friday between 10.00 and 12.00</p>;
+
             case DeliveryMethod.SCHEDUELED:
-              return 'foo';
+                return (
+                    <><p>Pick the date</p>     <DateTimePicker onChange={onChange} value={value} /></>
+                )
+
             case DeliveryMethod.SELF_PICKUP:
-              return 'foo';
+                return <p>You can pick up the food at kitcen</p>;
+
             default:
                 return <></>
-          }
+        }
+
+
     }
 
     function datediff(first, second) {
         return Math.abs(Math.round((second - first) / (1000 * 60 * 60 * 24)));
     }
     const radiobuttons = [
-    { name: 'Deliver Now', value: DeliveryMethod.QUICK_COURIER },
-    { name: 'Schedule Delivery', value: DeliveryMethod.SCHEDUELED },
-    { name: 'Self-Pickup', value: DeliveryMethod.SELF_PICKUP },
-    { name: 'Fixed delivery', value: DeliveryMethod.FIXED},
-  ];
+        { name: 'Deliver Now', value: DeliveryMethod.QUICK_COURIER },
+        { name: 'Schedule Delivery', value: DeliveryMethod.SCHEDUELED },
+        { name: 'Self-Pickup', value: DeliveryMethod.SELF_PICKUP },
+        { name: 'Fixed delivery', value: DeliveryMethod.FIXED },
+    ];
 
     const isEditable = (date: Date) => {
         return datediff(date, new Date()) > 2
@@ -59,43 +70,42 @@ const Orders = () => {
                 <Card.Body>
                     <Card.Title>Food Delivery</Card.Title>
                     <Card.Text>
-                      Your upcoming deliveries:
-                      <Accordion defaultActiveKey="0">
-        {state.map(function (el, index) {
-            return datediff(new Date(), el.delivery_date)<3 && new Date()<= el.delivery_date ?
-            <Accordion.Item eventKey= {index}>
-                <Accordion.Header>{el.delivery_date.getDate() + "/" + (el.delivery_date.getMonth() + 1)} </Accordion.Header>
-            <Accordion.Body>
-                <Row>
-                    <Col>
-                    <ButtonGroup>
-        {radiobuttons.map((radio, idx) => (
-          <ToggleButton
-            key={idx}
-            id={`radio-${idx}`}
-            type="radio"
-            variant='outline-success'
-            name="radio"
-            value={radio.value}
-            checked={radioValue === radio.value}
-            onChange={(e) => setRadioValue(e.currentTarget.value as DeliveryMethod)}
-          >
-            {radio.name}
-          </ToggleButton>
-        ))}
-      </ButtonGroup>
-                                
-                    </Col>
-                    <Col>
-                     {renderSwitch(radioValue)}
-                    </Col>
-                </Row>
-            </Accordion.Body>
-        </Accordion.Item>
-        : <></>
-        })}
-    
-    </Accordion>
+                        Your upcoming deliveries:
+                        <Accordion defaultActiveKey="0">
+                            {state.map(function (el, index) {
+                                return datediff(new Date(), el.delivery_date) < 3 && new Date() <= el.delivery_date ?
+                                    <Accordion.Item eventKey={index}>
+                                        <Accordion.Header>{el.delivery_date.getDate() + "/" + (el.delivery_date.getMonth() + 1)} </Accordion.Header>
+                                        <Accordion.Body>
+                                            <Row>
+                                                <Col>
+                                                    <ButtonGroup>
+                                                        {radiobuttons.map((radio, idx) => (
+                                                            <ToggleButton
+                                                                key={idx}
+                                                                id={`radio-${idx}`}
+                                                                type="radio"
+                                                                variant='outline-success'
+                                                                name="radio"
+                                                                value={radio.value}
+                                                                checked={radioValue === radio.value}
+                                                                onChange={(e) => setRadioValue(e.currentTarget.value as DeliveryMethod)}
+                                                            >
+                                                                {radio.name}
+                                                            </ToggleButton>
+                                                        ))}
+                                                    </ButtonGroup>
+
+                                                </Col>
+                                            </Row>
+                                            {renderSwitch(radioValue)}
+                                            <Button onClick={() => doSomething()}>Confirm</Button>
+                                        </Accordion.Body>
+                                    </Accordion.Item>
+                                    : <></>
+                            })}
+
+                        </Accordion>
 
                     </Card.Text>
                 </Card.Body>
@@ -170,3 +180,5 @@ const Orders = () => {
 };
 
 export default Orders;
+
+
