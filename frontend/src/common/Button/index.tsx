@@ -4,10 +4,11 @@ import { ButtonProps } from "../types";
 export const Button = ({
   color,
   fixedWidth,
+  background,
   children,
   onClick,
 }: ButtonProps) => (
-  <StyledButton color={color} fixedWidth={fixedWidth} onClick={onClick}>
+  <StyledButton background={background} color={color} fixedWidth={fixedWidth} onClick={onClick}>
     {children}
   </StyledButton>
 );

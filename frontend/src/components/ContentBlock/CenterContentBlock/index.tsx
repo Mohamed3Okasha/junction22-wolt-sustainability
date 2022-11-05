@@ -59,8 +59,9 @@ const CenterContentBlock = ({
                       <Button
                         key={id}
                         color={item.color}
+                        background={item.background}
                         fixedWidth={true}
-                        onClick={()=> history.push(item.to)}
+                        onClick={item.action}
                       >
                         {t(item.title)}
                       </Button>
