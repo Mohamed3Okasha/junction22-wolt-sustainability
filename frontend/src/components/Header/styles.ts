@@ -11,7 +11,6 @@ export const HeaderSection = styled("header")`
   }
 `;
 
-
 export const LogoContainer = styled(Link)`
   display: flex;
 `;
@@ -43,6 +42,12 @@ export const ContactWrapper = styled("div")<any>`
   display: inline-block;
 `;
 
+export const MenuItemContainer = styled("div")`
+  @media only screen and (min-width: 891px) {
+    display: block;
+  }
+  display: none;
+`;
 
 export const Burger = styled("div")`
   @media only screen and (max-width: 890px) {

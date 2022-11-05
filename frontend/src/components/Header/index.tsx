@@ -4,7 +4,7 @@ import { withTranslation } from "react-i18next";
 import Container from "../../common/Container";
 import { SvgIcon } from "../../common/SvgIcon";
 import { Button } from "../../common/Button";
-import { useHistory } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
 import {
   HeaderSection,
@@ -15,6 +15,7 @@ import {
   Label,
   Outline,
   Span,
+  MenuItemContainer,
 } from "./styles";
 import { useGlobalState } from "../../state/GlobalStateProvider";
 const Header = ({ t }: any) => {
@@ -29,7 +30,7 @@ const Header = ({ t }: any) => {
   };
 
   const [state, dispatch] = useGlobalState();
-  
+
   const history = useHistory();
 
   const MenuItem = () => {
@@ -40,61 +41,66 @@ const Header = ({ t }: any) => {
       });
       setVisibility(false);
     };
-    return  (
+    return (
       <>
         <Col>
-        <Row align="middle">
-        <LogoContainer to="/" aria-label="homepage">
-            <SvgIcon src="logo.svg" width="101px" height="64px" />
-        </LogoContainer>
-        <CustomNavLinkSmall onClick={() => scrollTo("menu")}>
-          <Span>{t("Our Menu")}</Span>
-        </CustomNavLinkSmall>
-        <CustomNavLinkSmall  onClick={() => scrollTo("pricing")}>
-          <Span>{t("Pricing")}</Span>
-        </CustomNavLinkSmall>
-        <CustomNavLinkSmall  onClick={() => scrollTo("contact")}>
-          <Span>{t("How it Works")}</Span>
-        </CustomNavLinkSmall>
-        </Row>
-        </Col>
-        <Col >
-        {!state.auth &&
-          <CustomNavLinkSmall onClick={() => {
-            dispatch({ auth: true })
-            history.push("/auth")}            
-          }>
-          <Span>{t("Log in")}</Span>
-          </CustomNavLinkSmall>
-        }
-        {(state.auth)&& 
-            <CustomNavLinkSmall onClick={() => {
-              dispatch({ auth: false })
-              history.push("/")
-            }
-            }>
-            <Span>{t("Log out")}</Span>
-          </CustomNavLinkSmall>
-        }
+          <Row align="middle">
+            <LogoContainer to="/" aria-label="homepage">
+              <SvgIcon src="logo.svg" width="101px" height="64px" />
+            </LogoContainer>
+            <CustomNavLinkSmall onClick={() => scrollTo("menu")}>
+              <Span>{t("Our Menu")}</Span>
+            </CustomNavLinkSmall>
+            <CustomNavLinkSmall onClick={() => scrollTo("pricing")}>
+              <Span>{t("Pricing")}</Span>
+            </CustomNavLinkSmall>
+            <CustomNavLinkSmall onClick={() => scrollTo("contact")}>
+              <Span>{t("How it Works")}</Span>
+            </CustomNavLinkSmall>
 
-        {(state.auth )&& 
-            <CustomNavLinkSmall onClick={() => {
-              dispatch({ auth: false })
-              history.push("/auth/orders")
-            }
-            }>
-            <Span>{t("My orders")}</Span>
-          </CustomNavLinkSmall>
-        }
-      
-        <CustomNavLinkSmall
-          style={{ width: "180px" }}
-          onClick={() => scrollTo("contact")}
-        >
-          <Span>
-            <Button background="#D9D9D9" color="#000000" >{t("Get Started")}</Button>
-          </Span>
-        </CustomNavLinkSmall>
+            {!state.auth && (
+              <CustomNavLinkSmall
+                onClick={() => {
+                  dispatch({ auth: true });
+                  history.push("/auth");
+                }}
+              >
+                <Span>{t("Log in")}</Span>
+              </CustomNavLinkSmall>
+            )}
+            {state.auth && (
+              <CustomNavLinkSmall
+                onClick={() => {
+                  dispatch({ auth: false });
+                  history.push("/");
+                }}
+              >
+                <Span>{t("Log out")}</Span>
+              </CustomNavLinkSmall>
+            )}
+
+            {state.auth && (
+              <CustomNavLinkSmall
+                onClick={() => {
+                  dispatch({ auth: false });
+                  history.push("/auth/orders");
+                }}
+              >
+                <Span>{t("My orders")}</Span>
+              </CustomNavLinkSmall>
+            )}
+
+            <CustomNavLinkSmall
+              style={{ width: "180px" }}
+              onClick={() => scrollTo("contact")}
+            >
+              <Span>
+                <Button background="#D9D9D9" color="#000000">
+                  {t("Get Started")}
+                </Button>
+              </Span>
+            </CustomNavLinkSmall>
+          </Row>
         </Col>
       </>
     );
@@ -104,7 +110,9 @@ const Header = ({ t }: any) => {
     <HeaderSection>
       <Container>
         <Row justify="space-between" align="middle">
-          <MenuItem />
+          <MenuItemContainer>
+            <MenuItem />
+          </MenuItemContainer>
           <Burger onClick={showDrawer}>
             <Outline />
           </Burger>
