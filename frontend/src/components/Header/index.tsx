@@ -77,26 +77,27 @@ const Header = ({ t }: any) => {
                 <Span>{t("Log out")}</Span>
               </CustomNavLinkSmall>
             )}
-        
-        {(state.auth )&& 
+
+        {(state.auth )
+            ?
             <CustomNavLinkSmall onClick={() => {
               history.push("/auth/orders")
             }
             }>
-            <Span>{t("My orders")}</Span>
-          </CustomNavLinkSmall>
+              <Span>{t("My orders")}</Span>
+            </CustomNavLinkSmall>
+            :
+            <CustomNavLinkSmall
+                style={{ width: "180px" }}
+                onClick={() => scrollTo("contact")}
+            >
+              <Span>
+                <Button background="#D9D9D9" color="#000000" >{t("Get Started")}</Button>
+              </Span>
+            </CustomNavLinkSmall>
         }
-      
-        <CustomNavLinkSmall
-          style={{ width: "180px" }}
-          onClick={() => scrollTo("contact")}
-        >
-          <Span>
-            <Button background="#D9D9D9" color="#000000" >{t("Get Started")}</Button>
-          </Span>
-        </CustomNavLinkSmall>
-        </Row>
 
+        </Row>
         </Col>
       </>
     );
