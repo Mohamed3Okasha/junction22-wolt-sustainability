@@ -1,5 +1,4 @@
 import React from "react";
-import Form from 'react-bootstrap/Form';
 
 enum MealTime  {
     BREAKFAST,
@@ -12,6 +11,15 @@ enum MealType {
     REGULAR,
 }
 
+export enum DeliveryStatus {
+    IN_PLANNING,
+    PREPARING_FOOD,
+    READY_TO_BE_DELIVERED,
+    WAITING_FOR_DELIVERY,
+    IN_DELIVERY,
+    DELIVERED
+}
+
 export enum DeliveryMethod {
   SELF_PICKUP="self",
   FIXED="fixed",
@@ -20,42 +28,51 @@ export enum DeliveryMethod {
   UNKNOWN="unknown"
 }
 
-type Delivery = {
+export type Delivery = {
     delivery_date: Date,
     delivery_method: DeliveryMethod,
-    mealId: number,
+    meal: string,
+    status: DeliveryStatus
 }
 
 const accountOrdedDeliveries: Delivery[] = [
   {
     delivery_date:  new Date(new Date().getTime() - 86400000*1),
     delivery_method: DeliveryMethod.QUICK_COURIER,
-    mealId: 5,
+    meal: "Pasta Bolognese",
+    status: DeliveryStatus.DELIVERED
   },
   {
     delivery_date: new Date(),
     delivery_method: DeliveryMethod.UNKNOWN,
-    mealId: 1,
+    meal: "Caesar salat",
+    status: DeliveryStatus.READY_TO_BE_DELIVERED
   },
   {
     delivery_date: new Date(new Date().getTime() + 86400000*2),
     delivery_method: DeliveryMethod.UNKNOWN,
-    mealId: 2,
+    status: DeliveryStatus.READY_TO_BE_DELIVERED,
+    meal: "Chili con carne"
+
   },
   {
     delivery_date: new Date(new Date().getTime() + 86400000*4),
     delivery_method: DeliveryMethod.UNKNOWN,
-    mealId: 2,
+    status: DeliveryStatus.PREPARING_FOOD,
+    meal: "Rice wok"
+
   },
   {
     delivery_date: new Date(new Date().getTime() + 86400000*5),
     delivery_method: DeliveryMethod.UNKNOWN,
-    mealId: 3,
+    status: DeliveryStatus.IN_PLANNING,
+    meal: "Pasta Carbonara"
   },
   {
     delivery_date: new Date(new Date().getTime() + 86400000*6),
     delivery_method: DeliveryMethod.UNKNOWN,
-    mealId: 4,
+    status: DeliveryStatus.IN_PLANNING,
+    meal: "Chicken masala"
   },
 ];
 
